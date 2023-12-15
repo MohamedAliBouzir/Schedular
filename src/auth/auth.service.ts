@@ -21,6 +21,16 @@ export class AuthService {
         hash,
       },
     });
+    // remove hash from the return (security) using transformers
+    delete user.hash;
+    // if you want to specify the return fields try out:
+    /**
+     * select: {
+     *  id: true,
+     *  email: true,
+     *  createdAt: true,
+     * ...};
+     */
     // return saved user
     return user;
     return 'I am signed up';
